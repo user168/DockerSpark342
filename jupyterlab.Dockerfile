@@ -2,8 +2,8 @@ FROM cluster-base
 
 # -- Layer: JupyterLab
 
-ARG spark_version=2.4.5
-ARG jupyterlab_version=2.1.5
+ARG spark_version=3.4.2
+ARG jupyterlab_version=4.1.1
 
 RUN apt-get update -y && \
     apt-get install -y python3-pip && \
@@ -18,5 +18,5 @@ RUN apt-get update -y && \
 
 EXPOSE 8888
 WORKDIR ${SHARED_WORKSPACE}
-CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=
+CMD jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
 

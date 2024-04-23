@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-8
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=adminPassword
+      - MYSQL_DATABASE=local-dev
+      - MYSQL_USER=root
+    volumes:
+      - .local/db:/var/lib/mysql
+    ports:
+      - 3306:3306
